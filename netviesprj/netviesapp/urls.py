@@ -1,9 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 from .views import Home
 
 app_name = 'netviesapp'
 
 
 urlpatterns = [
-    path('', Home, name='home')
+    path('', Home.as_view(), name='Home')
 ]
