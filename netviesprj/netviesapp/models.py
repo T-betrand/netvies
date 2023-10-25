@@ -22,7 +22,7 @@ class Profile(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4) 
 
     def __str__(self):
-        return self.title
+        return self.name
     
 class Movie(models.Model):
     title = models.CharField(max_length=1000)
