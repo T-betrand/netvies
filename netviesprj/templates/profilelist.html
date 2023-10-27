@@ -13,6 +13,7 @@
 
   <div class="flex flex-wrap justify-center items-center w-10/12 md:w-6/12">
     {% for profile in profiles %}
+    {% comment %} {% url 'netviesapp:movie-list' profile_id=profile.uuid %} {% endcomment %}
     <a href="">
       <div class="w-32 h-32 m-4 bg-blue-500 rounded-md cursor-pointer justify-center items-center flex-col flex">
         <p class="text-6xl" style="font-weight: 900">
@@ -24,9 +25,9 @@
     {% endfor %}
   </div>
   <div class="flex justify-center items-center">
-    <button class="px-4 py-2 rounded-md outline-none bg-gray-400 text-gray-100">
-      Add A New Profile
-    </button>
+    <a href="{% url 'netviesapp:profile-create' %}" class="px-4 py-2 rounded-md outline-none bg-gray-400 text-gray-100">
+        Add A New Profile
+    </a>
   </div>
 </section>
 {% endblock content %}
