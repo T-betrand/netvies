@@ -61,3 +61,18 @@ class MovieList(View):
             return render(request, 'movielist.html', context)
         except Profile.DoesNotExist:
             return redirect('netviesapp:profile-list')
+
+
+method_decorator(login_required, name='dispatch')
+class MovieDetail(View):
+    def get(self, request, movie_id, *args, **kwargs):
+        try:
+            movie = Movie.objects.get(uuid=movie_id)
+            
+            context = {
+                'movie':movie
+            }
+
+            return render(request, 'moviedetail.html', context)
+        except Movie.DoesNotExist:
+            return redirect('netviesapp:profile-list')
